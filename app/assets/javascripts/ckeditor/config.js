@@ -8,6 +8,17 @@ CKEDITOR.editorConfig = function( config )
   // Define changes to default configuration here. For example:
   // config.language = 'fr';
   // config.uiColor = '#AADC6E';
+  myFonts = ['Muli'];
+
+  config.font_names = 'sans serif';
+
+  for(var i = 0; i<myFonts.length; i++){
+     config.font_names = config.font_names+';'+myFonts[i];
+     myFonts[i] = 'http://fonts.googleapis.com/css?family='+myFonts[i].replace(' ','+');
+
+     //assuming you use jquery
+     $("head").append("<link rel='stylesheet' href='"+ myFonts[i] +"'>");
+  }
 
   /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
